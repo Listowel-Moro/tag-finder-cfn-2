@@ -125,6 +125,18 @@ Resources:
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/AmazonS3FullAccess
         - arn:aws:iam::aws:policy/AmazonRDSFullAccess
+      Policies:
+        - PolicyName: SSMParameterStoreAccess
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - "ssm:GetParameter"
+                  - "ssm:GetParameters"
+                  - "ssm:GetParametersByPath"
+                Resource: "*"
+
 
   # Create log group
   ECSLogGroup:
